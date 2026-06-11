@@ -343,8 +343,17 @@ header { padding: 15px 0; border-bottom: 1px solid var(--border-color); backgrou
 .b-card h4 { color: var(--text-color); font-size: 0.9rem; text-transform: uppercase; }
 .b-card .amount { font-size: 2rem; font-weight: bold; margin: 10px 0; color: var(--text-dark);}
 
-.dashboard-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
-.form-box, .table-box { background: var(--card-bg); padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: background-color 0.3s; }
+/*.dashboard-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+.form-box, .table-box { background: var(--card-bg); padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: background-color 0.3s; }*/
+
+.dashboard-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; min-width: 0; /* Evita que el grid se expanda más allá de la pantalla */}
+.form-box, .table-box { background: var(--card-bg); padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: background-color 0.3s; min-width: 0; /* Obliga al contenedor a respetar el ancho de la pantalla, no el de la tabla */ max-width: 100%; }
+
+.table-box {
+    overflow-x: auto; /* Asegura el scroll horizontal globalmente */
+}
+
+
 .form-control { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 5px; font-family: var(--font-main); background-color: var(--input-bg); color: var(--input-text); transition: background-color 0.3s, color 0.3s, border-color 0.3s;}
 
 .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; background: var(--bg-light); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); }
@@ -377,13 +386,20 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
 .spinner { width: 50px; height: 50px; border: 5px solid var(--bg-light); border-top: 5px solid var(--brand-pink); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
     .about-grid, .dashboard-grid, .balance-cards { grid-template-columns: 1fr !important; }
     .dashboard-header { flex-direction: column; text-align: center; gap: 15px; }
     .dashboard-header div { text-align: center !important; width: 100%; }
     .dashboard-header button { width: 100%; margin-top: 5px; }
-    .form-box, .table-box { padding: 15px; }
+    .form-box, .table-box { padding: 15px; width: 100% !important; max-width: 100vw;}
+    
+    /* 🛠️ SOLUCIÓN PARA LA VENTANA ADMINISTRATIVA:
+       Esto encapsula la tabla de 600px permitiendo scroll horizontal interno
+       SIN estirar ni romper el ancho de la pantalla del teléfono */
+    .table-box { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    
     .testimonio-card { width: 160px; height: 230px; }
     .section-title { font-size: 2.8rem; }
 }
@@ -398,6 +414,9 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
     .social-sidebar:hover, .social-sidebar:active, .social-sidebar:focus-within { transform: translate(0%, -50%); opacity: 1; }
     .card:active { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(209, 77, 156, 0.2); border-color: var(--brand-pink); }
     
+    /* Evita que los checkboxes de opciones se amontonen feo en pantallas pequeñas */
+    .checkbox-group { grid-template-columns: 1fr !important; }
+    
     .testimonio-card.left-2, .testimonio-card.right-2 { display: none; }
     .testimonio-card { width: 140px; height: 200px; }
     .carousel-3d-container { height: 260px; }
@@ -407,11 +426,17 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
     .message { font-size: 1.8rem; }
 }
 
+
+
+
+
+
+
 /* ===================================================
    ESTRUCTURA UNIFICADA PARA EL MODAL DE AUTENTICACIÓN
 =================================================== */
 .auth-container {
-    max-width: 310px !important;
+    max-width: 340px !important;
     padding: 0 !important; /* Esencial para que las pestañas y el banner toquen los bordes */
     overflow: hidden;      /* Mantiene los bordes redondeados del modal */
     border-radius: 20px;
@@ -468,12 +493,12 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
 }
 
 .auth-body {
-    padding: 7px 30px 0px 30px;
+    padding: 30px 30px 0px 30px;
 }
 
 .auth-close {
     position: absolute;
-    right: 5px;
+    right: 10px;
     top: 0px;
     font-size: 1.5rem;
     color: #aaa;
@@ -518,7 +543,7 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
 .input-group i {
     position: absolute;
     left: 15px;
-    top: 15px;
+    top: 13px;
     transform: translateY(-50%);
     color: #d66a94;
     transition: color 0.3s;
@@ -529,14 +554,14 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
     padding: 4px 0px 5px 35px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     background: var(--input-bg);
     color: var(--input-text);
     transition: border-color 0.3s;
 }
 
 .input-group input:focus {
-    outline: none;
+    /*!outline: none;*/
     border-color: var(--brand-pink);
 }
 .input-group input:focus + i { color: var(--brand-pink); }
@@ -548,7 +573,7 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
     color: var(--brand-pink);
     text-decoration: none;
     margin-top: -10px;
-    margin-bottom: 4px;
+    margin-bottom: 22px;
 }
 .forgot-password-link:hover { text-decoration: underline; }
 
@@ -575,11 +600,11 @@ th { background: var(--bg-light); color: var(--text-dark); font-weight: bold;}
 
 .auth-divisor {
     text-align: center;
-    margin: 25px 0;
+    margin: 20px 0;
     color: #aaa;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     position: relative;
-    font-weight: 500;
+    font-weight: 5;
 }
 .auth-divisor::before, .auth-divisor::after {
     content: "";

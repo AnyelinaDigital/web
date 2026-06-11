@@ -387,7 +387,7 @@ window.toggleAuthMode = function() {
     isLoginMode = !isLoginMode;
     
     // Actualizar Títulos y Botones
-    document.getElementById('auth-title').innerText = isLoginMode ? "¡Bienvenid@!" : "Regístrate";
+    document.getElementById('auth-title').innerText = isLoginMode ? "¡Bienvenido!" : "Regístrate";
     document.getElementById('auth-subtitle').innerText = isLoginMode ? "Accede a tu espacio en Anyelina Digital" : "Forma parte de nuestra comunidad";
     document.getElementById('btn-auth-submit').innerText = isLoginMode ? "INICIAR SESIÓN" : "REGISTRARSE";
     

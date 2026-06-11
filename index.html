@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Anyelina Digital VE | Soluciones de Marketing Digital</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TOP BAR (Idioma y Tema) -->
+    <div class="top-bar">
+        <div class="lang-switch">
+            <i class="fas fa-globe"></i>
+            <select id="lang-selector" onchange="window.cambiarIdioma(this.value)">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        <button class="theme-switch" onclick="window.toggleTheme()" title="Cambiar Tema">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+
 <!-- Fuentes y Iconos -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -9,19 +40,6 @@
 <link rel="stylesheet" href="styles.css">
 
 
-<!-- TOP BAR (Idioma y Tema) -->
-<div class="top-bar">
-    <div class="lang-switch">
-        <i class="fas fa-globe"></i>
-        <select id="lang-selector" onchange="window.cambiarIdioma(this.value)">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-        </select>
-    </div>
-    <button class="theme-switch" onclick="window.toggleTheme()" title="Cambiar Tema">
-        <i class="fas fa-moon" id="theme-icon"></i>
-    </button>
-</div>
 
 <!-- SIDEBAR SOCIAL -->
 <div class="social-sidebar" id="social-sidebar">
@@ -78,11 +96,11 @@
         <div class="about-grid">
             <div class="about-text">
                 <h2 class="section-title" style="text-align: left;" data-i18n="aboutTitle">Hola, soy Anyelina</h2>
-                    <p data-i18n="aboutText" align="justify">Creadora de <strong>Anyelinadigital.ve</strong>. Me dedico al marketing digital, creación de contenido y gestión de redes sociales, ayudando a marcas y emprendedores a comunicar quiénes son realmente en redes.</p>
+                    <p data-i18n="aboutTex1t" align="justify">Creadora de <strong>Anyelinadigital.ve</strong>. Me dedico al marketing digital, creación de contenido y gestión de redes sociales, ayudando a marcas y emprendedores a comunicar quiénes son realmente en redes.</p>
                     <hr style="height: 3px; background-color: #f18ac7; border: none; width: 100%;">
-                    <p data-i18n="aboutText" align="justify"><strong>Anyelina Digital</strong> es una innovadora agencia de marketing digital que se especializa en ofrecer soluciones personalizadas para negocios que desean mejorar su presencia en línea. Con un enfoque en la creatividad y el uso de tecnologías de vanguardia, ayudando a las empresas a conectarse de manera efectiva con su público objetivo.</p>
+                    <p data-i18n="aboutText2" align="justify"><strong>Anyelina Digital</strong> es una innovadora agencia de marketing digital que se especializa en ofrecer soluciones personalizadas para negocios que desean mejorar su presencia en línea. Con un enfoque en la creatividad y el uso de tecnologías de vanguardia, ayudando a las empresas a conectarse de manera efectiva con su público objetivo.</p>
                     <hr style="height: 3px; background-color: #f18ac7; border: none; width: 100%;">
-                    <p data-i19n="aboutText" align="justify">Sus servicios incluyen diseño web, gestión de redes sociales, optimización para motores de búsqueda (SEO) y desarrollo de campañas publicitarias en línea. El equipo de expertos de <strong>Anyelina Digital</strong> trabaja estrechamente con sus clientes para entender sus necesidades específicas y crear estrategias que impulsen el crecimiento y el éxito en el mundo digital.</p>
+                    <p data-i18n="aboutText3" align="justify">Sus servicios incluyen diseño web, gestión de redes sociales, optimización para motores de búsqueda (SEO) y desarrollo de campañas publicitarias en línea. El equipo de expertos de <strong>Anyelina Digital</strong> trabaja estrechamente con sus clientes para entender sus necesidades específicas y crear estrategias que impulsen el crecimiento y el éxito en el mundo digital.</p>
                     
                 <div class="objetivos-box">
                     <h3 data-i18n="objTitle">Nuestros Objetivos</h3>
@@ -619,7 +637,7 @@
         </div>
 
         <div class="auth-header" id="auth-header-banner">
-            <h2 id="auth-title">¡Bienvenid@!</h2>
+            <h2 id="auth-title">¡Bienvenido!</h2>
             <p id="auth-subtitle">Accede a tu espacio en Anyelina Digital</p>
         </div>
 
@@ -957,3 +975,6 @@
 
 <!-- Script Principal JS -->
 <script type="module" src="script.js"></script>
+
+</body>
+</html>
